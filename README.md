@@ -15,15 +15,15 @@
    ```bash
    mysqldump -u root -p app_db > backup.sql
 
-   Phase 2: Target RDS Provisioning
+ ###  Phase 2: Target RDS Provisioning
 Created an Amazon RDS MySQL instance (target-rds-mysql) configured with standard credentials (admin) in the default VPC.
 
 Configured security groups to allow inbound MySQL traffic (Port 3306) from the EC2 instance.
 
-Phase 3: Data Restoration & Troubleshooting
+ ### Phase 3: Data Restoration & Troubleshooting
 Imported the legacy SQL backup into the remote RDS database endpoint:
 
-Bash
+### Bash
 mysql -h target-rds-mysql.cn0k80sqg9pp.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p app_db < backup.sql
 Troubleshooting Log:
 
@@ -31,7 +31,7 @@ Error Encountered: ERROR 1049 (42000): Unknown database 'app_db'
 
 Resolution: Logged into the remote RDS instance via the MySQL client, executed CREATE DATABASE app_db;, and then successfully re-ran the import command.
 
-✅ Verification & Operations
+### ✅ Verification & Operations
 1. Row Count Validation
 Executed row count verification queries on both environments to ensure data integrity. The matching output confirmed zero data loss:
 
