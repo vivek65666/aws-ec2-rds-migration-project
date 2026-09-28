@@ -1,5 +1,11 @@
 # AWS Cloud Migration Project (EC2 + RDS MySQL)
 
+## 🏗️ Visual Architecture
+
+Here is the high-level overview of the migration project:
+
+![AWS Migration Architecture Diagram](architecture.png)
+
 ## 🏗️ Architecture Overview
 - **Before (Legacy):** Single Amazon Linux 2023 EC2 instance hosting both the web application environment and a local MySQL database server.
 - **After (Target):** Production-grade architecture featuring an AWS EC2 instance cleanly separated and securely connected to a managed **Amazon RDS MySQL** database instance running inside the default VPC.
